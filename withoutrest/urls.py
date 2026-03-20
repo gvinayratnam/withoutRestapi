@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from testapp.views import emp_data_view,emp_data_jsonview,emp_data_jsonview2,JsonCBV
+from testapp.views import emp_data_view,emp_data_jsonview,emp_data_jsonview2,JsonCBV,JsonCBVMix
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',emp_data_view),
     path('apijson/',emp_data_jsonview),
     path('apijson2/',emp_data_jsonview2),
-    path('apiJsonCBV',JsonCBV.as_view())
+    path('apiJsonCBV',JsonCBV.as_view()),
+    path('apiJsonCBVMix',JsonCBVMix.as_view())
 ]

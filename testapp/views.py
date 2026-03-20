@@ -41,3 +41,32 @@ class JsonCBV(View):
         # return JsonResponse(emp_data)
         json_data = json.dumps({'msg':'This is the get method'})
         return HttpResponse(json_data,content_type='application/json')
+    
+    def post(self,request,*args, **kwargs ):
+        json_data = json.dumps({'msg':'This is the post method'})
+        return HttpResponse(json_data,content_type='application/json')
+    def put(self,request,*args, **kwargs ):
+        json_data = json.dumps({'msg':'This is the put method'})
+        return HttpResponse(json_data,content_type='application/json')
+    def delete(self,request,*args, **kwargs ):
+        json_data = json.dumps({'msg':'This is the delete method'})
+        return HttpResponse(json_data,content_type='application/json')
+
+from . mixins import HttpResponseMixin
+
+class JsonCBVMix(HttpResponseMixin,View):
+    def get(self,request,*args, **kwargs ):
+        
+        json_data = json.dumps({'msg':'This is the mixin get method'})
+        return self.render_to_http_response(json_data)
+    
+    def post(self,request,*args, **kwargs ):
+        json_data = json.dumps({'msg':'This is the post method'})
+        return 
+    def put(self,request,*args, **kwargs ):
+        json_data = json.dumps({'msg':'This is the put method'})
+        return HttpResponse(json_data,content_type='application/json')
+    def delete(self,request,*args, **kwargs ):
+        json_data = json.dumps({'msg':'This is the delete method'})
+        return HttpResponse(json_data,content_type='application/json')
+   
