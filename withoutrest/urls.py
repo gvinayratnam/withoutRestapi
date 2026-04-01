@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from testapp.views import emp_data_view,emp_data_jsonview,emp_data_jsonview2,JsonCBV,JsonCBVMix
+from testapp.views import emp_data_view,emp_data_jsonview,emp_data_jsonview2,JsonCBV,JsonCBVMix,ApiCurd,GetAll
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,7 @@ urlpatterns = [
     path('apijson/',emp_data_jsonview),
     path('apijson2/',emp_data_jsonview2),
     path('apiJsonCBV',JsonCBV.as_view()),
-    path('apiJsonCBVMix',JsonCBVMix.as_view())
+    path('apiJsonCBVMix',JsonCBVMix.as_view()),
+    path('apicurd/<int:id>',ApiCurd.as_view()),
+    path('getall',GetAll.as_view()),
 ]
